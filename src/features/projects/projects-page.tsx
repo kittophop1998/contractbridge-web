@@ -66,7 +66,7 @@ export function ProjectsPage() {
         }
       />
 
-      <div className="relative max-w-sm">
+      <div className="relative max-w-md">
         <SearchIcon
           className="pointer-events-none absolute top-1/2 left-2.5 size-4 -translate-y-1/2 text-muted-foreground"
           aria-hidden
@@ -106,10 +106,14 @@ export function ProjectsPage() {
       ) : null}
 
       {!loading && !error && projects.length > 0 ? (
-        <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {projects.map((project) => (
+        <ul className="grid gap-4 sm:grid-cols-2 xl:grid-cols-[1.2fr_0.8fr]">
+          {projects.map((project, index) => (
             <li key={project.id}>
-              <Card className="h-full transition-shadow hover:shadow-sm">
+              <Card
+                className={`h-full transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:shadow-md ${
+                  index === 0 ? "sm:col-span-2 xl:col-span-1" : ""
+                }`}
+              >
                 <CardContent className="flex h-full flex-col gap-3">
                   <div className="flex items-start justify-between gap-2">
                     <Link

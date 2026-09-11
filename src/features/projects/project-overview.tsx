@@ -67,11 +67,11 @@ export function ProjectOverview({ projectId }: { projectId: string }) {
       />
 
       <dl className="grid grid-cols-2 gap-3 sm:grid-cols-4">
-        {facts.map((fact) => (
-          <Card key={fact.label}>
+        {facts.map((fact, index) => (
+          <Card key={fact.label} className={index === 0 ? "sm:col-span-2" : ""}>
             <CardContent className="space-y-1">
-              <dt className="text-xs text-muted-foreground">{fact.label}</dt>
-              <dd className="font-heading text-lg font-medium tracking-tight">
+              <dt className="font-mono text-[0.7rem] font-medium tracking-wide text-muted-foreground uppercase">{fact.label}</dt>
+              <dd className="font-heading text-xl font-bold tracking-tight text-primary">
                 {fact.value}
               </dd>
             </CardContent>
@@ -79,7 +79,7 @@ export function ProjectOverview({ projectId }: { projectId: string }) {
         ))}
       </dl>
 
-      <Card>
+      <Card className="border-l-4 border-l-accent">
         <CardContent className="grid gap-4 sm:grid-cols-2">
           <div className="space-y-1">
             <p className="text-xs text-muted-foreground">Base URL</p>
@@ -100,7 +100,7 @@ export function ProjectOverview({ projectId }: { projectId: string }) {
 
       <section className="space-y-4">
         <div className="flex items-center justify-between gap-4">
-          <h2 className="font-heading text-lg font-medium tracking-tight">
+          <h2 className="font-heading text-xl font-bold tracking-tight text-primary">
             Recent APIs
           </h2>
           <div className="flex items-center gap-2">
@@ -133,7 +133,7 @@ export function ProjectOverview({ projectId }: { projectId: string }) {
             }
           />
         ) : (
-          <ul className="divide-y rounded-xl border">
+          <ul className="overflow-hidden rounded-md border bg-card shadow-[0_2px_12px_rgb(44_62_80_/_0.06)] divide-y">
             {recent.map((api) => (
               <li key={api.id}>
                 <Link

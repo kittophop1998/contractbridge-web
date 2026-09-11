@@ -124,11 +124,11 @@ export function ApisPage({ projectId }: { projectId: string }) {
       ) : null}
 
       {!loading && !error && endpoints.length > 0 ? (
-        <ul className="divide-y rounded-xl border">
+        <ul className="divide-y overflow-hidden rounded-md border bg-card shadow-[0_2px_12px_rgb(44_62_80_/_0.06)]">
           {endpoints.map((api) => (
             <li
               key={api.id}
-              className="flex items-center gap-2 pr-2 transition-colors hover:bg-muted/50"
+              className="flex items-center gap-2 pr-2 transition-colors hover:bg-secondary/70"
             >
               <Link
                 href={`/projects/${projectId}/apis/${api.id}`}

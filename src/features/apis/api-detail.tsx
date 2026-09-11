@@ -84,7 +84,7 @@ function SchemaView({ schema, level = 0 }: { schema?: ApiSchema; level?: number 
 
 function CodeSample({ value, language = "json" }: { value?: string; language?: string }) {
   if (!value) return <p className="text-sm text-muted-foreground">No example defined.</p>;
-  return <pre className="max-h-96 overflow-auto rounded-lg border bg-muted/40 p-4 text-xs leading-5"><code data-language={language}>{value}</code></pre>;
+  return <pre className="max-h-96 overflow-auto rounded-md border bg-[#2c3e50] p-4 font-mono text-xs leading-5 text-[#ecf0f1]"><code data-language={language}>{value}</code></pre>;
 }
 
 function Section({ title, children }: { title: string; children: ReactNode }) {
@@ -93,7 +93,7 @@ function Section({ title, children }: { title: string; children: ReactNode }) {
 
 function ParameterList({ parameters }: { parameters: ApiParameter[] }) {
   if (!parameters.length) return <p className="text-sm text-muted-foreground">None.</p>;
-  return <div className="overflow-x-auto rounded-lg border"><table className="w-full min-w-[600px] text-left text-sm"><thead className="bg-muted/50 text-xs text-muted-foreground"><tr><th className="px-3 py-2 font-medium">Name</th><th className="px-3 py-2 font-medium">In</th><th className="px-3 py-2 font-medium">Type</th><th className="px-3 py-2 font-medium">Required</th><th className="px-3 py-2 font-medium">Description</th></tr></thead><tbody className="divide-y">{parameters.map((parameter) => <tr key={parameter.id}><td className="px-3 py-2 font-mono text-xs">{parameter.name}</td><td className="px-3 py-2">{parameter.in}</td><td className="px-3 py-2 text-xs">{formatSchemaType(parameter.schema)}</td><td className="px-3 py-2">{parameter.required || parameter.in === "path" ? "Yes" : "No"}</td><td className="px-3 py-2 text-muted-foreground">{parameter.description || "—"}</td></tr>)}</tbody></table></div>;
+  return <div className="overflow-x-auto rounded-md border bg-card shadow-[0_2px_12px_rgb(44_62_80_/_0.06)]"><table className="w-full min-w-[600px] text-left text-sm"><thead className="bg-secondary/70 text-xs text-muted-foreground"><tr><th className="px-3 py-2 font-medium">Name</th><th className="px-3 py-2 font-medium">In</th><th className="px-3 py-2 font-medium">Type</th><th className="px-3 py-2 font-medium">Required</th><th className="px-3 py-2 font-medium">Description</th></tr></thead><tbody className="divide-y">{parameters.map((parameter) => <tr key={parameter.id}><td className="px-3 py-2 font-mono text-xs">{parameter.name}</td><td className="px-3 py-2">{parameter.in}</td><td className="px-3 py-2 text-xs">{formatSchemaType(parameter.schema)}</td><td className="px-3 py-2">{parameter.required || parameter.in === "path" ? "Yes" : "No"}</td><td className="px-3 py-2 text-muted-foreground">{parameter.description || "—"}</td></tr>)}</tbody></table></div>;
 }
 
 export function ApiDetail({ projectId, apiId }: { projectId: string; apiId: string }) {

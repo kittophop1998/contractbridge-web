@@ -2,11 +2,11 @@ import { cn } from "@/lib/utils";
 import type { HttpMethod } from "@/types";
 
 const METHOD_STYLES: Record<HttpMethod, string> = {
-  GET: "bg-emerald-500/10 text-emerald-700 dark:text-emerald-400",
-  POST: "bg-sky-500/10 text-sky-700 dark:text-sky-400",
-  PUT: "bg-amber-500/10 text-amber-700 dark:text-amber-400",
-  PATCH: "bg-violet-500/10 text-violet-700 dark:text-violet-400",
-  DELETE: "bg-rose-500/10 text-rose-700 dark:text-rose-400",
+  GET: "bg-[#20b2aa]/15 text-[#087b75]",
+  POST: "bg-[#2c3e50]/10 text-[#2c3e50]",
+  PUT: "bg-[#ff8c00]/15 text-[#a85400]",
+  PATCH: "bg-[#8a2be2]/12 text-[#6820ad]",
+  DELETE: "bg-rose-500/10 text-rose-700",
   HEAD: "bg-muted text-muted-foreground",
   OPTIONS: "bg-muted text-muted-foreground",
 };
@@ -21,7 +21,7 @@ export function MethodBadge({
   return (
     <span
       className={cn(
-        "inline-flex h-5 w-16 shrink-0 items-center justify-center rounded-md font-mono text-[0.7rem] font-semibold tracking-tight",
+        "inline-flex h-6 w-16 shrink-0 items-center justify-center rounded-sm font-mono text-[0.7rem] font-semibold tracking-tight",
         METHOD_STYLES[method],
         className,
       )}

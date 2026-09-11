@@ -14,7 +14,7 @@ export function LoadingState({
   return (
     <div className={cn("space-y-3", className)} aria-busy="true">
       {Array.from({ length: rows }).map((_, index) => (
-        <Skeleton key={index} className="h-20 w-full rounded-xl" />
+        <Skeleton key={index} className="h-20 w-full rounded-md" />
       ))}
     </div>
   );
@@ -22,7 +22,7 @@ export function LoadingState({
 
 function Panel({ children }: { children: ReactNode }) {
   return (
-    <div className="flex flex-col items-center gap-3 rounded-xl border border-dashed px-6 py-12 text-center">
+    <div className="flex flex-col items-center gap-3 rounded-md border border-dashed bg-card px-6 py-12 text-center shadow-sm">
       {children}
     </div>
   );

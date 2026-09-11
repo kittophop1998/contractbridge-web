@@ -38,7 +38,7 @@ export function ProjectNav({ projectId }: { projectId: string }) {
       : "";
 
   return (
-    <nav className="flex flex-col gap-4 border-b pb-4 sm:flex-row sm:items-center sm:justify-between">
+    <nav className="flex flex-col gap-4 border-b border-border pb-4 sm:flex-row sm:items-center sm:justify-between">
       <div className="flex min-w-0 items-center gap-1.5 text-sm">
         <Link
           href="/projects"
@@ -83,10 +83,10 @@ export function ProjectNav({ projectId }: { projectId: string }) {
               href={href}
               aria-current={active ? "page" : undefined}
               className={cn(
-                "rounded-lg px-2.5 py-1.5 text-sm font-medium whitespace-nowrap transition-colors",
+                "relative rounded-md px-3 py-2 text-sm font-medium whitespace-nowrap transition-colors",
                 active
-                  ? "bg-muted text-foreground"
-                  : "text-muted-foreground hover:text-foreground",
+                  ? "bg-primary text-primary-foreground shadow-sm"
+                  : "text-muted-foreground hover:bg-card hover:text-foreground",
               )}
             >
               {item.label}
